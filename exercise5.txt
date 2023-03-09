@@ -1,0 +1,29 @@
+Default (numpy.float64):
+
+128x128 CPU -> 240 µs ± 6.92 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+128x128 GPU -> 78.9 µs ± 12.4 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+256x256 CPU -> 1.05 ms ± 127 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+256x256 GPU -> 68.6 µs ± 777 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+512x512 CPU -> 5.01 ms ± 82.4 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+512x512 GPU -> 252 µs ± 3.02 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+1024x1024 CPU -> 28 ms ± 609 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+1024x1024 GPU -> 1.09 ms ± 3.12 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+2048x2048 CPU -> 156 ms ± 23.4 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+2048x2048 GPU -> 4.34 ms ± 37.1 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+
+It is already faster with 128x128!
+For GPU 256x256 is similar speed as 128x128, probably because the limitation is the overhead
+
+numpy.float32
+128x128 CPU -> 396 µs ± 112 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+128x128 GPU -> 69.6 µs ± 1.22 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+256x256 CPU -> 1.14 ms ± 309 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+256x256 GPU -> 69.8 µs ± 1.24 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+512x512 CPU -> 6.39 ms ± 1.48 ms per loop (mean ± std. dev. of 7 runs, 100 loops each)
+512x512 GPU -> 80.7 µs ± 13.3 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+1024x1024 CPU -> 33.3 ms ± 7.86 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+1024x1024 GPU -> 233 µs ± 2.42 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+2048x2048 CPU -> 195 ms ± 36.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+2048x2048 GPU -> 940 µs ± 18.5 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+
+It is much faster on the GPU now, however, for the smaller sizes (<512x512), the overhead seems to be taking most of the time, as they take similar times
